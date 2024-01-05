@@ -1,0 +1,30 @@
+download file from lonk
+link = https://github.com/ansible/ansible/tree/stable-2.9/contrib/inventory
+
+#install boto3 library
+pip3 install boto3
+pip3 install boto
+pip install ansible==2.9.27
+
+pip freeze > requirements.txt
+
+
+#change first line of ec2.py
+to = #!/usr/bin/python3
+
+#comment line 172
+--> #from ansible.module_utils import ec2 as ec2_utils
+
+give chmod +x ec2.py
+
+create ansible.cfg file in current directory
+[defaults]
+inventory = ./ec2.py
+
+give creditional to ec2
+export AWS_ACCESS_KEY_ID='AK123'
+    export AWS_SECRET_ACCESS_KEY='abc123'
+    
+    
+
+
